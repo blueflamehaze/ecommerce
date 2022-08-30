@@ -1,32 +1,37 @@
-import React, { useState } from "react";
-import reactLogo from "./assets/react.svg";
+import React, { useState, useEffect} from "react";
+import axios from "axios";
 import "./App.css";
+import Home from "./pages/Home";
 
 function App() {
-	const [count, setCount] = useState(0);
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {  (
+		async () =>{
+			try {
+				const  {data}  = await axios.get(
+					"https://ecomerce-master.herokuapp.com/api/v1/item"
+				);	
+				const dataCopy= data.slice(50);
+				setProducts(data);
+				//imprimir();
+			} catch (error){
+				console.error(error);
+			}
+		}
+	)();		
+	}, []);
+
+	useEffect(() => {
+		console.log(products);
+	}, [products]);
+
+
+  
 
 	return (
 		<div className="App">
-			<div>
-				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-					<img src="/vite.svg" className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://reactjs.org" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-			</div>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-				</button>
-				<p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-				</p>
-			</div>
-			<p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-			</p>
+			<Home/>
 		</div>
 	);
 }
