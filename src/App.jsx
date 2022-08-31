@@ -12,9 +12,8 @@ function App() {
 				const  {data}  = await axios.get(
 					"https://ecomerce-master.herokuapp.com/api/v1/item"
 				);	
-				const dataCopy= data.slice(50);
-				setProducts(data);
-				//imprimir();
+				const dataCopy= data.slice(1,50);
+				setProducts(dataCopy);
 			} catch (error){
 				console.error(error);
 			}
@@ -22,16 +21,16 @@ function App() {
 	)();		
 	}, []);
 
-	useEffect(() => {
+	/* 	useEffect(() => {
 		console.log(products);
 	}, [products]);
-
+ */
 
   
 
 	return (
 		<div className="App">
-			<Home/>
+			<Home products={products}/>
 		</div>
 	);
 }

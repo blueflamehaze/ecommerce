@@ -1,10 +1,12 @@
 import React from "react";
 import "./style.css";
+import noImage from "../img/no-product-image.png";
 
-const Card = () => {
-	return <div className="bg"><h3>Nombre del producto</h3>
-		<img src="" className="card__img" width="200px"/>
-		<p>Precio</p>
+
+const Card = ({productInfo: {name, price, image}}) => {
+	return <div className="bg"><h3>{name}</h3>
+		<img src={image ? image : noImage} className="card__img" />
+		<p className="price">$ {price}</p>
 	</div>;
 };
 
