@@ -2,6 +2,9 @@ import React, { useState, useEffect} from "react";
 import axios from "axios";
 import "./App.css";
 import Home from "./pages/Home";
+import NavbarApp from "./components/NavbarApp";
+import SignUp from "./pages/SignUp";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 function App() {
 	const [products, setProducts] = useState([]);
@@ -21,17 +24,19 @@ function App() {
 	)();		
 	}, []);
 
-	/* 	useEffect(() => {
-		console.log(products);
-	}, [products]);
- */
-
   
 
 	return (
-		<div className="App">
-			<Home products={products}/>
-		</div>
+		<>
+			<NavbarApp/>
+			<Routes>
+				<Route path="/" element={<Home products={products} />}></Route>
+				<Route path="/signup" element={<SignUp />}></Route>
+				<Route path="*" element={<h3>Error 404</h3>}></Route>
+			</Routes>
+		</>
+	
+		
 	);
 }
 
