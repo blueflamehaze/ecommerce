@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import NavbarApp from "../components/NavbarApp";
+import "./Home.css";
 
 const Login = () => {
 	const [loginData, setLoginData] = useState({});
@@ -30,22 +31,30 @@ const Login = () => {
 	return (
 		<>
 			<NavbarApp/>
-			<h3 className="my-5">Login</h3>
-			<form onSubmit={userLogin} id="login">
-				<div className="row">
-					<div className="col">
-						<input type="email" className="form-control" placeholder="Email" aria-label="Email" name="email" value={loginData.email || "" } onChange={handleLoginData}/>
-					</div>
-					<div className="col">
-						<input type="password" className="form-control" placeholder="Password" aria-label="Password" name="password" value={loginData.password  || ""} onChange={handleLoginData}/>
+			<h1 className="my-5 home__title">Login</h1>
+			<div className="row justify-content-center mx-5">
+				<div col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+					<div className="card" style={{width: "100%"}}>
+						<form onSubmit={userLogin} id="login">
+							<p>Por favor completa los datos para iniciar sesión.</p>
+							<div className="row justify-content-center my-3">
+								<div className="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+									<input type="email" className="form-control" placeholder="Email" aria-label="Email" name="email" value={loginData.email || "" } onChange={handleLoginData}/>
+								</div>
+								<div className="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+									<input type="password" className="form-control" placeholder="Password" aria-label="Password" name="password" value={loginData.password  || ""} onChange={handleLoginData}/>
+								</div>
+							</div>
+							<div className="row justify-content-center mb-5">
+								<div className="col">
+									<button type="submit" className="product__btn">Enviar</button>
+								</div>
+							</div>
+						</form >
 					</div>
 				</div>
-				<div className="row">
-					<div className="col">
-						<button type="submit">Enviar</button>
-					</div>
-				</div>
-			</form >
+			</div>
+		
 		</>
 	);
 };

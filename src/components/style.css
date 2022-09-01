@@ -6,6 +6,23 @@
   border-radius: 15px;
   padding: 15px;
   margin: 0 auto;
+ 
+  box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+  transition: all 0.3s ease-out;
+}
+.bg:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+    0 24px 46px var(--box-shadow-color);
+    background-color:  #b8f9d3;
+    border: 2px solid #055160;
+}
+
+.bg:hover .overlay {
+  transform: scale(4) translateZ(0);
+}
+.navbar__center{
+  align-items: center !important;
 }
 .card__img{
   width: 100%;
@@ -15,4 +32,40 @@
 .price{
   font-size: 16px;
   font-weight: 600;
+}
+.title{
+  color: #ffffff !important;
+  font-size: 1.5em !important;
+  padding: auto 20px !important;
+}
+.navbar__bg{
+  background-color: #055160;
+  color: #ffff;
+}
+.navbar__element{
+  color: #ffffff !important;
+  font-size: 1.1rem !important;
+  padding: 0 10px !important;
+  font-weight: 500 !important;
+}
+.navbar__element:hover{
+  color: #4dd4ac !important;
+}
+.search__btn{
+  background-color: #1aa17800 !important;
+  color: #ffff !important;
+  border-color: #ffffff !important;
+}
+.user{
+  font-weight: 600;
+  padding: auto 10px;
+}
+.logout__btn{
+  background-color: transparent !important;
+  border: 2px solid #fff;
+  margin: auto 10px !important;
+  padding: 5px 10px !important;
+}
+.logout__btn:hover{
+  border: 2px solid #0aa2c0;
 }

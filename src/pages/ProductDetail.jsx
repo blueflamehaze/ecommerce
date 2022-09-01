@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import noImage from "../img/no-product-image.png";
 import { Link } from "react-router-dom";
+import "./Home.css";
 
 const ProductDetail = () => {
 	const [productInfo, setproductInfo] = useState({});
@@ -34,24 +35,33 @@ const ProductDetail = () => {
   
 	return (
 		<><NavbarApp userLoginState={userLoginState}/>
-			<h3 className="my-5">Detalles del producto</h3>
-			<div className="card" style={{width: "18rem"}}>
-				<img className="card-img-top" src={productInfo.image ? productInfo.image : noImage} alt="Product info"/>
-				<div className="card-body">
-					<h5 className="card-title">{productInfo.product_name}</h5>
-					<p className="card-text">{productInfo.description}</p>
-					<p className="card-text">$ {productInfo.price}</p>
-					{ isUserLogged ? isUserLogged.isUserLogged ? (<button className="btn btn-primary text-white">Comprar</button>) :
-						(<>
-							<button className="btn btn-primary text-white"><Link to="/login">Login</Link></button>
-							<button className="btn btn-primary text-white"><Link to="/signup">Sign up</Link></button>
-						</>) : (<>
-						<button className="btn btn-primary text--white"><Link to="/login">Login</Link></button>
-						<button className="btn btn-primary text-white"><Link to="/signup">Sign up</Link></button>
-					</>) }
+			<h1 className="my-5 home__title">Detalles del producto</h1>
+			<div className="row justify-content-center mx-5">
+				<div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+					<div className="card" style={{width: "100%"}}>
+						<div className="row">
+							<div className="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5"><img className="card-img-top" src={productInfo.image ? productInfo.image : noImage} alt="Product info"/></div>
+							<div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"><div className="card-body">
+								<h5 className="product_title">{productInfo.product_name}</h5>
+								<p className="product__description">{productInfo.description}</p>
+								<p className="product__price">$ {productInfo.price}</p>
+								{ isUserLogged ? isUserLogged.isUserLogged ? (<button className="product__btn">Comprar</button>) :
+									(<>
+										<button className="product__btn"><Link to="/login" className="text__white">Login</Link></button>
+										<button className="product__btn"><Link to="/signup" className="text__white">Sign up</Link></button>
+									</>) : (<>
+									<button className="product__btn"><Link to="/login" className="text__white">Login</Link></button>
+									<button className="product__btn"><Link to="/signup" className="text__white">Sign up</Link></button>
+								</>) }
 				
+							</div></div>
+						</div>
+						
+						
+					</div>
 				</div>
 			</div>
+			
 		</>
 	);
 };

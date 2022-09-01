@@ -9,7 +9,7 @@ const Home = ({products}) => {
 	return (
 		<>
 			<NavbarApp/>
-			<h1 className="my-5">Productos</h1> 		
+			<h1 className="my-5 home__title">Productos</h1> 		
 			<div className="row justify-content-center">
 				{products.map((value, index) => {
 					const productInfo={name: value.product_name, price: value.price, image: value.image};
