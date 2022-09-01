@@ -6,6 +6,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import "./style.css";
+import personWhite from "../img/person_white_24dp.svg";
+import localShipping from "../img/local_shipping_white_24dp.svg";
 
 const NavbarApp = ({userLoginState}) => {
 	const [isUserLogged, setIsUserLogged] = useState({});
@@ -27,7 +29,12 @@ const NavbarApp = ({userLoginState}) => {
 	return (
 		<Navbar className="navbar__bg" expand="lg">
 			<Container fluid>
-				<Navbar.Brand href="#" className="title">Ecommerce</Navbar.Brand>
+				<Link to="/" className="title navbar__element">
+					<img src={localShipping} alt="Logo de carrito de compras" className="navbar__image" />	
+					Ecommerce
+				</Link>
+				{/* <Navbar.Brand href="#" className="title">
+				</Navbar.Brand> */}
 				<Navbar.Toggle aria-controls="navbarScroll" />
 				<Navbar.Collapse id="navbarScroll">
 					<Nav
@@ -35,14 +42,21 @@ const NavbarApp = ({userLoginState}) => {
 						style={{ maxHeight: "100px" }}
 						navbarScroll
 					>
-						<Link to="/" className="navbar__element">Home</Link>		
-						{isUserLogged ? isUserLogged.isUserLogged ? (<>
-							<span className="user">{isUserLogged.role}</span> <button onClick={resetLogin} className="logout__btn">Logout</button>
-						</>) : (<><Link to="/signup" className="navbar__element">Sign up</Link>
-							<Nav.Link href="/login" className="navbar__element">Login</Nav.Link></>) : (<><Link to="/signup" className="navbar__element">Sign up</Link>
-							<Nav.Link href="/login" className="navbar__element">Login</Nav.Link></>)}
+						<Link to="/" className="navbar__element">Home</Link>
 					</Nav>
-					<Form className="d-flex">
+					{isUserLogged 
+						? isUserLogged.isUserLogged 
+							? (<>
+								<img src={personWhite} alt="Logo de usuario" />	
+								<span className="user">{isUserLogged.role}</span> 
+							</>) 
+							: (<><Link to="/signup" className="navbar__element">Sign up</Link>
+								<Nav.Link href="/login" className="navbar__element">Login</Nav.Link></>) 
+						: (<><Link to="/signup" className="navbar__element">Sign up</Link>
+							<Nav.Link href="/login" className="navbar__element">Login</Nav.Link></>)
+					}
+					
+					<Form className="d-flex align-items-center">
 						<Form.Control
 							type="search"
 							placeholder="Search"
@@ -50,6 +64,14 @@ const NavbarApp = ({userLoginState}) => {
 							aria-label="Search"
 						/>
 						<Button className="search__btn">Search</Button>
+						{isUserLogged 
+							? isUserLogged.isUserLogged 
+								? (<>
+									<button onClick={resetLogin} className="logout__btn">Logout</button>
+								</>) 
+								: "" 
+							: ""
+						}
 					</Form>
 				</Navbar.Collapse>
 			</Container>

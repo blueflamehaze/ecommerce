@@ -42,6 +42,9 @@
   background-color: #055160;
   color: #ffff;
 }
+.navbar__image{
+  margin-right: .5rem;
+}
 .navbar__element{
   color: #ffffff !important;
   font-size: 1.1rem !important;
@@ -59,6 +62,7 @@
 .user{
   font-weight: 600;
   padding: auto 10px;
+  margin-right: 20px;
 }
 .logout__btn{
   background-color: transparent !important;

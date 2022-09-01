@@ -36,10 +36,10 @@ const ProductDetail = () => {
 	return (
 		<><NavbarApp userLoginState={userLoginState}/>
 			<h1 className="my-5 home__title">Detalles del producto</h1>
-			<div className="row justify-content-center mx-5">
+			<div className="row justify-content-center mx-2 mb-5">
 				<div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
 					<div className="card" style={{width: "100%"}}>
-						<div className="row">
+						<div className="row align-items-center">
 							<div className="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5"><img className="card-img-top" src={productInfo.image ? productInfo.image : noImage} alt="Product info"/></div>
 							<div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"><div className="card-body">
 								<h5 className="product_title">{productInfo.product_name}</h5>
@@ -47,10 +47,10 @@ const ProductDetail = () => {
 								<p className="product__price">$ {productInfo.price}</p>
 								{ isUserLogged ? isUserLogged.isUserLogged ? (<button className="product__btn">Comprar</button>) :
 									(<>
-										<button className="product__btn"><Link to="/login" className="text__white">Login</Link></button>
+										<button className="product__btn d-block mb-2"><Link to="/login" className="text__white">Login</Link></button>
 										<button className="product__btn"><Link to="/signup" className="text__white">Sign up</Link></button>
 									</>) : (<>
-									<button className="product__btn"><Link to="/login" className="text__white">Login</Link></button>
+									<button className="product__btn d-block mb-2"><Link to="/login" className="text__white">Login</Link></button>
 									<button className="product__btn"><Link to="/signup" className="text__white">Sign up</Link></button>
 								</>) }
 				
