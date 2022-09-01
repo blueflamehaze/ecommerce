@@ -33,7 +33,7 @@ const Login = () => {
 			<NavbarApp/>
 			<h1 className="my-5 home__title">Login</h1>
 			<div className="row justify-content-center mx-5">
-				<div col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12>
+				<div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 					<div className="card" style={{width: "100%"}}>
 						<form onSubmit={userLogin} id="login">
 							<p>Por favor completa los datos para iniciar sesión.</p>
