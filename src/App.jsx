@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import ProductDetail from "./pages/ProductDetail";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 function App() {
@@ -32,7 +33,8 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home products={products} />}></Route>
 				<Route path="/signup" element={<SignUp />}></Route>
-				<Route path="/login" element={<Login />}></Route>				
+				<Route path="/login" element={<Login />}></Route>
+				<Route path="/product/:id" element={<ProductDetail />}></Route>					
 				<Route path="*" element={<h3>Error 404</h3>}></Route>
 			</Routes>
 		</>
