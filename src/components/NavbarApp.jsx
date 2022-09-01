@@ -7,40 +7,18 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
 const NavbarApp = () => {
-	const [isUserLogged, setIsUserLogged] = useState({isUserLogged: false, role:""});
-
-	/* 	(function(){ const products = localStorage.getItem("products");
-		console.log("Navbar", products);})(); */
+	const [isUserLogged, setIsUserLogged] = useState({});
 
 	useEffect(() => {
 		const logged = localStorage.getItem("isUserLogged");
-		const jsonLogged = JSON.parse(logged);
-		console.log(typeof jsonLogged);	
-		console.log(jsonLogged);		
+		const jsonLogged = JSON.parse(logged);		
 		setIsUserLogged(jsonLogged);
-		console.log("ESTADO", isUserLogged);
-	}, [isUserLogged]); 
-
-	/* 	useEffect(() => {
-		function checkUserData() {
-			const logged = localStorage.getItem("isUserLogged");
-			const jsonLogged = JSON.parse(logged);
-
-			if (jsonLogged) {
-				setIsUserLogged(jsonLogged);
-			}
-		}		
-		window.addEventListener("storage", checkUserData);
-		console.log(isUserLogged);
-		return () => {
-			window.removeEventListener("storage", checkUserData);
-		};
-	}, [isUserLogged.isUserLogged]); */
-
+	}, []); 
 	
 
 	const resetLogin = () =>{
-		setIsUserLogged({isUserLogged: false, role:""});
+		localStorage.clear();
+		setIsUserLogged({});
 	};
 		
 	
@@ -55,13 +33,12 @@ const NavbarApp = () => {
 						style={{ maxHeight: "100px" }}
 						navbarScroll
 					>
-						<Link to="/">Home</Link>
-						{isUserLogged ? "Existe" : "Null"}
-						<Nav.Link href="/login">Login</Nav.Link>
-						{/* {isUserLogged.isUserLogged ? (<>
+						<Link to="/">Home</Link>		
+						{isUserLogged ? isUserLogged.isUserLogged ? (<>
 							<p>{isUserLogged.role}</p> <button onClick={resetLogin}>Logout</button>
 						</>) : (<><Link to="/signup">Sign up</Link>
-							<Nav.Link href="/login">Login</Nav.Link></>)} */}
+							<Nav.Link href="/login">Login</Nav.Link></>) : (<><Link to="/signup">Sign up</Link>
+							<Nav.Link href="/login">Login</Nav.Link></>)}
 					</Nav>
 					<Form className="d-flex">
 						<Form.Control

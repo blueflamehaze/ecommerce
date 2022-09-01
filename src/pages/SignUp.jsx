@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NavbarApp from "../components/NavbarApp";
 
 
 
@@ -23,7 +24,6 @@ const SignUp = () => {
 			} 
 		} catch (error){
 			console.error(error);
-			console.log("Algo salió mal");
 		}
 		setUserData({});
 	};
@@ -31,6 +31,7 @@ const SignUp = () => {
 	
 	return (
 		<>
+			<NavbarApp/>
 			<h3 className="my-5">Sign up</h3>
 			<form onSubmit={registerUser} id="registerUserData"> 
 				<div className="row">

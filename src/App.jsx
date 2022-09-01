@@ -2,7 +2,6 @@ import React, { useState, useEffect} from "react";
 import axios from "axios";
 import "./App.css";
 import Home from "./pages/Home";
-import NavbarApp from "./components/NavbarApp";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
@@ -29,7 +28,7 @@ function App() {
 
 	return (
 		<>
-			<NavbarApp/>
+			
 			<Routes>
 				<Route path="/" element={<Home products={products} />}></Route>
 				<Route path="/signup" element={<SignUp />}></Route>

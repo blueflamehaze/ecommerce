@@ -2,10 +2,12 @@ import React from "react";
 import Card from "../components/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Home.css";
+import NavbarApp from "../components/NavbarApp";
 
 const Home = ({products}) => {
 	return (
 		<>
+			<NavbarApp/>
 			<h1 className="my-5">Productos</h1> 		
 			<div className="row justify-content-center">
 				{products.map((value, index) => {

@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NavbarApp from "../components/NavbarApp";
 
 const Login = () => {
 	const [loginData, setLoginData] = useState({});
@@ -27,7 +28,9 @@ const Login = () => {
   
 
 	return (
-		<><h3 className="my-5">Login</h3>
+		<>
+			<NavbarApp/>
+			<h3 className="my-5">Login</h3>
 			<form onSubmit={userLogin} id="login">
 				<div className="row">
 					<div className="col">
